@@ -7,16 +7,20 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyDK2bCxPk8RE6SK5NaqH9op3XH_gOKoeMs",
-    authDomain: "angular-firebase-material-todo.firebaseapp.com",
-    databaseURL: "https://angular-firebase-material-todo.firebaseio.com",
-    projectId: "angular-firebase-material-todo",
-    storageBucket: "angular-firebase-material-todo.appspot.com",
-    messagingSenderId: "1028507325634"
-  };
+  apiKey: "AIzaSyDK2bCxPk8RE6SK5NaqH9op3XH_gOKoeMs",
+  authDomain: "angular-firebase-material-todo.firebaseapp.com",
+  databaseURL: "https://angular-firebase-material-todo.firebaseio.com",
+  projectId: "angular-firebase-material-todo",
+  storageBucket: "angular-firebase-material-todo.appspot.com",
+  messagingSenderId: "1028507325634"
+};
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ export const firebaseConfig = {
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,35 @@
-<h1> {{title}} </h1>
-
 <div>
-  <button (click)="loginAnonymous()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
-  <button (click)="loginWithGoogle()" *ngIf="!(user | async)?.uid">Login With Google</button>
-  <p>{{statusLogin}}</p>
-  <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
-</div>
+  <md-toolbar color="primary">
+    <span>{{title}}</span>
 
-<div>
-  <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What do you have to do?" (keyup.enter)="Send($event.target.value)"
-    [(ngModel)]="msgVal" />
-  <div id="details-container">
-    <p *ngFor="let item of items | async">{{item.message}}</p>
-  </div>
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+  <md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item >Profile</button>
+    <button md-menu-item (click)="logout()" >Logout</button>
+  </md-menu>
+
+  <md-card>
+    <button md-raised-button (click)="loginAnonymous()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
+    <button md-raised-button color="accent" (click)="loginWithGoogle()" *ngIf="!(user | async)?.uid">Login With Google</button>
+    <p>{{statusLogin}}</p>
+    <button md-raised-button color="primary" (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
+    <div class="todos" *ngIf="(user | async)?.uid">
+      <md-input-container class="input-todos">
+        <input mdInput type="text" id="message" placeholder="What do you have to do?" (keyup.enter)="Send($event.target.value)"
+          [(ngModel)]="msgVal" />
+      </md-input-container>
+      <div id="details-container">
+        <p *ngFor="let item of items | async">{{item.message}}</p>
+      </div>
+    </div>
+  </md-card>
+
+  <span class="done">
+    <button md-fab>
+      <md-icon>check circle</md-icon>
+    </button>
+  </span>
 </div>
