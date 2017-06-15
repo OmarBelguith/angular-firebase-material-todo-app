@@ -1,0 +1,13 @@
+<md-card>
+  <div class="todos">
+    <md-input-container class="input-todos">
+      <input mdInput type="text" placeholder="What do you have to do?" (keyup.enter)="addTodo($event.target.value)" [(ngModel)]="msgVal"/>
+    </md-input-container>
+    <div>
+      <div fxLayoutAlign="left" class="todo-item" *ngFor="let item of items | async">
+        <span class="todo-item-close" (click)="deleteTodo(item)"><i class="material-icons">clear</i></span>
+        <span class="todo-item-description">{{item.message}}</span>
+      </div>
+    </div>
+  </div>
+</md-card>

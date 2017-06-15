@@ -13,9 +13,16 @@ import { MaterialModule } from '@angular/material';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { AuthService } from "./services/auth.service";
+
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
+import { TodosComponent } from './todos/todos.component';
+
+import { RoutingModule } from './app-routing.module';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDK2bCxPk8RE6SK5NaqH9op3XH_gOKoeMs",
@@ -28,7 +35,10 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    LoginComponent,
+    TodosComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +50,10 @@ export const firebaseConfig = {
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

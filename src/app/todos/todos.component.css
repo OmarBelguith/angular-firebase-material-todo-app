@@ -1,0 +1,44 @@
+md-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+md-toolbar-row {
+  justify-content: space-between;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+}
+
+.input-todos {
+   width: 100%;
+}
+
+.todos {
+  padding: 0px;
+}
+
+.todo-item {
+  padding: 10px;
+  text-align: left;
+}
+
+.todo-item:hover {
+  font-weight: bold;
+  background: #f2f2f2;
+  cursor: context-menu;
+}
+
+.todo-item-close {
+  cursor: pointer;
+}
+
+.todo-item-description {
+  padding-top:3px;
+  padding-left: 10px;
+}

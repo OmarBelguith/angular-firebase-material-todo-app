@@ -1,0 +1,16 @@
+<md-toolbar color="primary">
+  <span>Todo App</span>
+
+  <div class="fill"></div>
+
+  <button md-icon-button [md-menu-trigger-for]="menu" *ngIf="(auth.user | async)?.uid">
+    <md-icon>more_vert</md-icon>
+  </button>
+
+<md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item>Config (Soon)</button>
+    <button md-menu-item (click)="logout()">Logout</button>
+  </md-menu>
+  
+</md-toolbar>
+
