@@ -16,4 +16,8 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.auth.logout();
   }
+
+  resetStatusLogin() {
+    this.auth.changeStatusLogin(false);
+  }
 }
