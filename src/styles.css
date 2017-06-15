@@ -11,3 +11,8 @@ body {
     margin: 0;
     font-family: Roboto, sans-serif;
 }
+
+.fill {
+  display: flex;
+  flex: 1 1 auto;
+}

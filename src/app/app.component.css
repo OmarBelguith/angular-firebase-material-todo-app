@@ -16,9 +16,27 @@ md-toolbar-row {
 }
 
 .input-todos {
-   width: 50%;
+   width: 100%;
 }
 
 .todos {
-  padding: 50px;
+  padding: 0px;
+}
+
+.todo-item {
+  padding: 10px;
+}
+
+.todo-item:hover {
+   font-weight: bold;
+   background: #f2f2f2;
+}
+
+.todo-item-close {
+  cursor: pointer;
+}
+
+.todo-item-description {
+  padding-top:3px;
+  padding-left: 10px;
 }

@@ -2,34 +2,34 @@
   <md-toolbar color="primary">
     <span>{{title}}</span>
 
-    <button md-icon-button [md-menu-trigger-for]="menu">
+    <div class="fill"></div>
+
+    <button *ngIf="(user | async)?.uid" md-icon-button [md-menu-trigger-for]="menu">
       <md-icon>more_vert</md-icon>
     </button>
   </md-toolbar>
   <md-menu x-position="before" #menu="mdMenu">
-    <button md-menu-item >Profile</button>
-    <button md-menu-item (click)="logout()" >Logout</button>
+    <button md-menu-item>Configurations</button>
+    <button md-menu-item (click)="logout()">Logout</button>
   </md-menu>
 
   <md-card>
-    <button md-raised-button (click)="loginAnonymous()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
-    <button md-raised-button color="accent" (click)="loginWithGoogle()" *ngIf="!(user | async)?.uid">Login With Google</button>
+    <div><button md-raised-button color="accent" (click)="loginWithGoogle()" *ngIf="!(user | async)?.uid">Login With Google</button></div>
     <p>{{statusLogin}}</p>
-    <button md-raised-button color="primary" (click)="logout()" *ngIf="(user | async)?.uid">Logout</button>
+    <div><button md-raised-button (click)="loginAnonymous()" *ngIf="!(user | async)?.uid">Anonymous Login</button></div>
+    
     <div class="todos" *ngIf="(user | async)?.uid">
       <md-input-container class="input-todos">
-        <input mdInput type="text" id="message" placeholder="What do you have to do?" (keyup.enter)="Send($event.target.value)"
-          [(ngModel)]="msgVal" />
+        <input mdInput type="text" id="message" placeholder="What do you have to do?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal"
+        />
       </md-input-container>
-      <div id="details-container">
-        <p *ngFor="let item of items | async">{{item.message}}</p>
+      <div>
+        <div fxLayoutAlign="left" class="todo-item" *ngFor="let item of items | async">
+          <span class="todo-item-close" (click)="deleteTodo(item)"><i class="material-icons">clear</i></span>
+          <span class="todo-item-description">{{item.message}}</span>
+        </div>
       </div>
     </div>
   </md-card>
 
-  <span class="done">
-    <button md-fab>
-      <md-icon>check circle</md-icon>
-    </button>
-  </span>
 </div>

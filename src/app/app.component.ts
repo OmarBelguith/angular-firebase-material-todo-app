@@ -12,7 +12,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Angular Firebase Material Todo App';
+  title = 'Todo App';
 
   user: Observable<firebase.User>;
   items: FirebaseListObservable<any[]>;
@@ -70,6 +70,10 @@ export class AppComponent implements OnInit {
   Send(desc: string) {
     this.items.push({ message: desc });
     this.msgVal = '';
+  }
+
+  deleteTodo(todo: any): void {
+    this.af.object('/todos/' + localStorage.getItem("uid") + "/" + todo.$key).remove();
   }
 
 }
