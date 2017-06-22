@@ -1,0 +1,8 @@
+.github {
+    text-align: center;
+    opacity: 0.5;
+}
+
+.github:hover {
+    opacity: 1;
+}

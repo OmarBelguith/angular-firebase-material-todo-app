@@ -23,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { TodosComponent } from './todos/todos.component';
 
 import { RoutingModule } from './app-routing.module';
+import { FooterComponent } from './footer/footer.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDK2bCxPk8RE6SK5NaqH9op3XH_gOKoeMs",
@@ -38,7 +39,8 @@ export const firebaseConfig = {
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    TodosComponent
+    TodosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
