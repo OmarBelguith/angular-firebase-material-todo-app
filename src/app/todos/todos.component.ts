@@ -16,6 +16,7 @@ export class TodosComponent implements OnInit {
 
   items: FirebaseListObservable<any[]>;
   msgVal: string = '';
+  todoEditing: any = null;
 
   constructor(public auth: AuthService, public af: AngularFireDatabase) {
     this.loadTodos();
@@ -32,14 +33,27 @@ export class TodosComponent implements OnInit {
   }
 
   addTodo(desc: string) {
-    if (desc) {
+    if (desc && this.todoEditing == null) {
       this.items.push({ message: desc });
-      this.msgVal = '';
+    } else {
+      this.todoEditing.message = this.msgVal;
+      this.updateTodo(this.todoEditing);
     }
+    this.msgVal = '';
+  }
+
+  editTodo(todo: any) {
+    this.todoEditing = todo;
+    this.msgVal = todo.message;
   }
 
   deleteTodo(todo: any): void {
     this.af.object('/todos/' + localStorage.getItem("uid") + "/" + todo.$key).remove();
+  }
+
+  updateTodo(todo: any): void {
+    this.af.object('/todos/' + localStorage.getItem("uid") + "/" + todo.$key).update(todo);
+    this.todoEditing = null;
   }
 
 }

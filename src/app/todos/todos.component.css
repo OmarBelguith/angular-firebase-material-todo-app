@@ -42,3 +42,20 @@ md-toolbar-row {
   padding-top:3px;
   padding-left: 10px;
 }
+
+.todo-item-edit {
+  opacity: 0.5;
+}
+
+.todo-item-edit:hover {
+  opacity: 1;
+}
+
+.input-todos-send {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.input-todos-send:hover {
+  opacity: 1;
+}
