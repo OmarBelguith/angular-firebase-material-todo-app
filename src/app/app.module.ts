@@ -25,14 +25,7 @@ import { TodosComponent } from './todos/todos.component';
 import { RoutingModule } from './app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyDK2bCxPk8RE6SK5NaqH9op3XH_gOKoeMs",
-  authDomain: "angular-firebase-material-todo.firebaseapp.com",
-  databaseURL: "https://angular-firebase-material-todo.firebaseio.com",
-  projectId: "angular-firebase-material-todo",
-  storageBucket: "angular-firebase-material-todo.appspot.com",
-  messagingSenderId: "1028507325634"
-};
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -46,7 +39,7 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,

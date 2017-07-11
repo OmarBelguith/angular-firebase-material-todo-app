@@ -2,7 +2,7 @@
   <div class="todos">
     <div fxLayoutAlign="left" class="input-todos">
       <md-input-container class="input-todos">
-        <input mdInput type="text" placeholder="What do you have to do?" (keyup.enter)="addTodo($event.target.value)" [(ngModel)]="msgVal"/>
+        <input id="inputMsg" mdInput type="text" placeholder="What do you have to do?" (keyup.enter)="addTodo($event.target.value)" [(ngModel)]="msgVal"/>
       </md-input-container>
       <span class="input-todos-send" (click)="addTodo(msgVal)"><i class="material-icons">send</i></span>
     </div>
@@ -10,8 +10,8 @@
     <div>
       <div fxLayoutAlign="left" class="todo-item" *ngFor="let item of items | async">
         <span class="todo-item-close" (click)="deleteTodo(item)"><i class="material-icons">clear</i></span>
-        <span class="todo-item-description">{{item.message}}</span>
-        <span class="fill"></span>
+        <span class="todo-item-description" (dblclick)="editTodo(item)">{{item.message}}</span>
+        <span class="fill" (dblclick)="editTodo(item)"></span>
         <span class="todo-item-edit" (click)="editTodo(item)"><i class="material-icons">mode_edit</i></span>
       </div>
     </div>

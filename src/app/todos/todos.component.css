@@ -45,6 +45,7 @@ md-toolbar-row {
 
 .todo-item-edit {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .todo-item-edit:hover {

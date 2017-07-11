@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -18,7 +18,7 @@ export class TodosComponent implements OnInit {
   msgVal: string = '';
   todoEditing: any = null;
 
-  constructor(public auth: AuthService, public af: AngularFireDatabase) {
+  constructor(public auth: AuthService, public af: AngularFireDatabase, private renderer2: Renderer2) {
     this.loadTodos();
   }
 
@@ -45,6 +45,7 @@ export class TodosComponent implements OnInit {
   editTodo(todo: any) {
     this.todoEditing = todo;
     this.msgVal = todo.message;
+    this.renderer2.selectRootElement('#inputMsg').focus();
   }
 
   deleteTodo(todo: any): void {
