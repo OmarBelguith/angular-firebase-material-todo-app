@@ -55,6 +55,7 @@ md-toolbar-row {
 .input-todos-send {
   opacity: 0.5;
   cursor: pointer;
+  padding-top: 10px;
 }
 
 .input-todos-send:hover {

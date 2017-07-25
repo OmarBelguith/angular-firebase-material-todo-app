@@ -1,0 +1,12 @@
+.fab {
+    width: 50%;
+    position: absolute;
+    right: 20px;
+}
+
+.md-fab {
+  margin: 0;
+  position: absolute;
+  z-index: 999;
+  top: 10px;
+}

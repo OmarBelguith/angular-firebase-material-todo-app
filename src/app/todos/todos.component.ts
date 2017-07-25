@@ -6,6 +6,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import * as firebase from 'firebase';
 
 import { AuthService } from '../services/auth.service';
+import { TodosService } from 'app/services/todos.service'
 
 @Component({
   selector: 'app-todos',
@@ -18,7 +19,11 @@ export class TodosComponent implements OnInit {
   msgVal: string = '';
   todoEditing: any = null;
 
-  constructor(public auth: AuthService, public af: AngularFireDatabase, private renderer2: Renderer2) {
+  constructor(public auth: AuthService, 
+    public af: AngularFireDatabase, 
+    private renderer2: Renderer2,
+    public todosService: TodosService) {
+      
     this.loadTodos();
   }
 
@@ -33,6 +38,7 @@ export class TodosComponent implements OnInit {
   }
 
   addTodo(desc: string) {
+    console.log('Active Tab: ' + this.todosService.activeTab);
     if (desc && this.todoEditing == null) {
       this.items.push({ message: desc });
     } else {

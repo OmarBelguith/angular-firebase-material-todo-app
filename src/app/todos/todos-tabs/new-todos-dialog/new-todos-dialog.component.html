@@ -1,0 +1,6 @@
+<div fxLayoutAlign="left">
+  <md-input-container class="input-todo-list-name">
+    <input mdInput type="text" placeholder="New Todo List Name" [(ngModel)]="todoListName" />
+  </md-input-container>
+</div>
+<button class="btn-add-todo-list-name" color="primary" md-raised-button md-dialog-close (click)="addTodoList(todoListName)">OK</button>

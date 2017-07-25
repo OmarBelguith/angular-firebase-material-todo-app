@@ -1,7 +1,10 @@
 .github {
-    padding-top: 10px;
     text-align: center;
     opacity: 0.5;
+    width: 100%;
+    position: fixed;
+    bottom: 10px;
+    z-index: -99;
 }
 
 .github:hover {
